@@ -47,7 +47,7 @@ Una aplicación CRUD que permite almacenar y encriptar nombres de usuario y cont
     ```bash
     npm install
 
-## Uso:
+#### Uso:
 - Para iniciar el servidor, ejecuta el siguiente comando:
     ```bash
     ng serve
