@@ -1,7 +1,5 @@
 const crypto = require("crypto-js"); // Importar la biblioteca de criptografía
-
-// Importar el modelo de usuario
-const User = require("../models/userModel");
+const User = require("../models/userModel"); // Importar el modelo de usuario
 
 // Función para crear un nuevo usuario
 async function createUser(req, res) {
@@ -58,26 +56,26 @@ async function getUserById(req, res) {
     }
 
     // Desencriptar el nombre de usuario y la contraseña del usuario encontrado
-    const userNameDesencriptado = desencriptar(
+    const userNameDecrypted = decrypt(
       user.userName,
       process.env.USER_ENCRYPTION_KEY
     );
-    const passwordDesencriptado = desencriptar(
+    const passwordDecrypted = decrypt(
       user.password,
       process.env.PASSWORD_ENCRYPTION_KEY
     );
 
     // Crear un objeto con los datos del usuario desencriptados y otros detalles
-    const usuarioDesencriptado = {
+    const userDecrypted = {
       id: user.id,
-      userName: userNameDesencriptado,
-      password: passwordDesencriptado,
+      userName: userNameDecrypted,
+      password: passwordDecrypted,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
     };
 
     // Responder con un código de estado 200 (éxito) y enviar el usuario desencriptado en formato JSON
-    res.status(200).json(usuarioDesencriptado);
+    res.status(200).json(userDecrypted);
   } catch (error) {
     console.error("Error al obtener usuario: " + error.stack); // Registrar cualquier error en la consola
     res.status(500).send("Error al obtener usuario"); // Responder con un código de estado 500 (error interno del servidor)
@@ -85,8 +83,8 @@ async function getUserById(req, res) {
 }
 
 // Función para desencriptar una cadena
-function desencriptar(cadenaEncriptada, clave) {
-  const bytes = crypto.AES.decrypt(cadenaEncriptada, clave); // Utilizar el algoritmo AES para desencriptar la cadena
+function decrypt(stringEncrypted, key) {
+  const bytes = crypto.AES.decrypt(stringEncrypted, key); // Utilizar el algoritmo AES para desencriptar la cadena
   return bytes.toString(crypto.enc.Utf8); // Convertir los bytes desencriptados en una cadena legible
 }
 
