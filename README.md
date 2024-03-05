@@ -38,6 +38,7 @@ Una aplicación CRUD que permite almacenar y encriptar nombres de usuario y cont
     ```bash
     npm start
 - Esto iniciará el servidor y tu API estará disponible en la dirección y puerto especificados.
+  
 - Crea la base de datos en MySQL o XAMPP (PHPMyAdmin):
     ```bash
     crud_encript
@@ -60,15 +61,6 @@ Una aplicación CRUD que permite almacenar y encriptar nombres de usuario y cont
     ```bash
     ng serve
 - Esto iniciará el servidor y tu FRONT estará disponible en la dirección y puerto especificados.
-
-
-## Contribución:
-Si deseas contribuir a este proyecto, sigue estos pasos:
-- Haz un fork de este repositorio.
-- Crea una nueva rama para tu función o corrección de errores (`git checkout -b feature/nueva-funcion`).
-- Haz tus cambios y haz commit (`git commit -am 'Añadir nueva función'`).
-- Haz push a la rama (`git push origin feature/nueva-funcion`).
-- Crea un nuevo pull request y describe tus cambios detalladamente.
 
 ## Licencia:
 - Este proyecto está bajo la Licencia ISC.
