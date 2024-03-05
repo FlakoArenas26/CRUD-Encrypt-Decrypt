@@ -1,0 +1,35 @@
+{
+  "name": "crud-encript",
+  "version": "1.0.0",
+  "description": "Una aplicación CRUD que permite almacenar y encriptar nombres de usuario y contraseñas, listar los datos encriptados y ver cada dato filtrado por ID de forma desencriptada.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "generate-migration": "sequelize-cli migration:generate --name create-users",
+    "migrate": "sequelize-cli db:migrate",
+    "reset-db": "sequelize-cli db:migrate:undo:all && sequelize-cli db:migrate"
+  },
+  "keywords": [
+    "CRUD",
+    "encriptación",
+    "usuarios",
+    "contraseñas",
+    "filtrado",
+    "desencriptado"
+  ],
+  "author": "RafArenas",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "mysql2": "^3.9.2",
+    "sequelize": "^6.37.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "sequelize-cli": "^6.6.2"
+  }
+}

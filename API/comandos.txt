@@ -1,0 +1,15 @@
+# Ejecutar la aplicación
+npm start
+
+# Generar una migración
+npm run generate-migration
+
+# Migrar la base de datos
+npm run migrate
+
+# Restablecer la base de datos
+npm run reset-db
+
+# Variables de entorno para la encriptación de usuario y contraseña
+USER_ENCRYPTION_KEY=tyODRIYD5IqrEHEwCgJimSHtFFcYS4B3
+PASSWORD_ENCRYPTION_KEY=qaijdVyZIjjbjkYjZYGaa2WItnhMzKAx

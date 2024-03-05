@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+	<div class="container-fluid">
+		<a class="navbar-brand text-white" href="#"><b>CRUD-Encrypt-Decrypt</b></a>
+		<button class="btn btn-primary my-3" (click)="toggleFormulario()">Registrar Usuario</button>
+	</div>
+</nav>
+
+<div class="container my-5 py-5">
+	<div class="row justify-content-center">
+		<div class="row" [style.display]="formularioVisible ? 'block' : 'none'">
+			<div class="col-md-6 border border-dark border-3 rounded my-5 py-5 mx-5 px-5">
+				<h1 class="text-center mt-1 pb-4">Agregar Usuario</h1>
+				<!-- <h1 class="text-center mt-1 pb-4">{{ tituloFormulario }}</h1> -->
+				<div class="form">
+					<form (ngSubmit)="registerUser()">
+						<!-- Formulario de registro de usuario -->
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="basic-addon1">
+								<i class="fas fa-user"></i>
+							</span>
+							<input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario"
+								aria-describedby="basic-addon1" [(ngModel)]="userForm.userName" name="userName">
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="basic-addon1">
+								<i class="fas fa-lock"></i>
+							</span>
+							<input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña"
+								aria-describedby="basic-addon1" [(ngModel)]="userForm.password" name="password">
+						</div>
+						<button id="registrarUsuario" class="btn btn-success mt-3" type="submit">Registrar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row justify-content-center" [style.display]="tablaVisible ? 'block' : 'none'">
+		<div class="col-md-12 border border-dark border-3 rounded">
+			<h1 class="text-center mt-2 pb-2">Lista de Usuarios</h1>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Usuario</th>
+						<th scope="col">Contraseña</th>
+						<th scope="col">Opciones</th> <!-- Nueva columna para las opciones -->
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngIf="userList && userList.length > 0; else noUsers">
+						<tr *ngFor="let user of userList">
+							<td>{{ user.id }}</td>
+							<td>{{ user.userName }}</td>
+							<td>{{ user.password }}</td>
+							<td>
+								<button type="button" class="btn btn-info me-2" (click)="getUserById(user)">
+									<i class="fas fa-eye"></i> Ver
+								</button>
+								<button type="button" class="btn btn-warning me-2" (click)="updateUser(user.id)">
+									<i class="fas fa-edit"></i> Editar
+								</button>
+								<button type="button" class="btn btn-danger" (click)="deleteUser(user.id)">
+									<i class="fas fa-trash-alt"></i> Eliminar
+								</button>
+							</td>
+						</tr>
+					</ng-container>
+					<ng-template #noUsers>
+						<tr>
+							<td colspan="4" class="text-center">No hay usuarios registrados</td>
+						</tr>
+					</ng-template>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</div>
