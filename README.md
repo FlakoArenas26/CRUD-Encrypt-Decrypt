@@ -32,11 +32,19 @@ Una aplicación CRUD que permite almacenar y encriptar nombres de usuario y cont
     ```bash
     npm install
 
+
 #### Uso:
 - Para iniciar el servidor, ejecuta el siguiente comando:
     ```bash
     npm start
 - Esto iniciará el servidor y tu API estará disponible en la dirección y puerto especificados.
+- Crea la base de datos en MySQL o XAMPP (PHPMyAdmin):
+    ```bash
+    crud_encript
+- Corre la migración de la tabla Users a la BD con el siguiente comando:
+    ```bash
+    npm run migrate
+- Con esto ya tienes configurada la BD para usar la aplicación.
 
 ### Para el FRONT
 - Navega hasta el directorio de tu proyecto:
