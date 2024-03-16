@@ -22,7 +22,7 @@ app.use(
 app.use(routes);
 
 // Definir el puerto en el que se ejecutará el servidor
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const URL = `http://localhost:${PORT}`; // Construir la URL base
 
 // Iniciar el servidor y escuchar en el puerto especificado
